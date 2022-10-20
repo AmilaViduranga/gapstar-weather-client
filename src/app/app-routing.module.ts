@@ -1,7 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CurrentWeatherComponent } from './weather-portal/weather-portal.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'current-weather', component: CurrentWeatherComponent
+  },
+  { 
+    path: '', redirectTo: '/current-weather', pathMatch: 'full' 
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
