@@ -1,4 +1,4 @@
-export interface Location {
+export interface LocationDetails {
     latitude: number;
     logitude: number;
 }

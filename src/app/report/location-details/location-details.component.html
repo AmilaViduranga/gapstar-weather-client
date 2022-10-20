@@ -1,0 +1,27 @@
+<div class="card">
+    <div class="card-header">
+      Location Details
+    </div>
+    <div class="card-body">
+      <app-data-displayer
+        [type]="TEXT"
+        [value]="locationReport?.cityName"
+        label="City Name"
+      ></app-data-displayer>
+      <app-data-displayer
+        [type]="TEXT"
+        [value]="locationReport?.latitude"
+        label="Latitude"
+      ></app-data-displayer>
+      <app-data-displayer
+        [type]="TEXT"
+        [value]="locationReport?.longitude"
+        label="Longitude"
+      ></app-data-displayer>
+      <app-data-displayer
+        [type]="TIME"
+        [value]="locationReport?.time"
+        label="Time"
+      ></app-data-displayer>
+    </div>
+</div>

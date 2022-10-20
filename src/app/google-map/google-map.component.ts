@@ -1,6 +1,6 @@
-import { Component, ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, NgZone, OnInit, Output, ViewChild } from '@angular/core';
 import { MapsAPILoader } from '@agm/core';
-import { Location } from '../DAO/location.dao';
+import type { LocationDetails } from '../dao/geo/location.dao';
 
 @Component({
   selector: 'app-google-map',
@@ -9,13 +9,14 @@ import { Location } from '../DAO/location.dao';
 })
 export class GoogleMapComponent implements OnInit {
 
-  mapLocation: Location = {
+  mapLocation: LocationDetails = {
     latitude: 0.0,
     logitude: 0.0
   };
   zoom?: number;
   geoCoder: google.maps.Geocoder;
   autocomplete: google.maps.places.Autocomplete;
+  @Output() getLocation: EventEmitter<LocationDetails> = new EventEmitter<LocationDetails>();
 
   @ViewChild('search')
   searchElementRef?: ElementRef;
@@ -43,17 +44,19 @@ export class GoogleMapComponent implements OnInit {
           this.mapLocation.latitude = place.geometry.location.lat();
           this.mapLocation.logitude = place.geometry.location.lng();
           this.zoom = 12;
+          this.getLocation.emit(this.mapLocation);
         });
       });
     });
   }
 
-  private setCurrentLocation() {
+  private setCurrentLocation(): void {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.mapLocation.latitude = position.coords.latitude;
         this.mapLocation.logitude = position.coords.longitude;
         this.zoom = 8;
+        this.getLocation.emit(this.mapLocation);
       });
     }
   }

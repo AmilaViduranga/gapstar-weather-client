@@ -1,0 +1,51 @@
+<div class="card">
+    <div class="card-header">
+        General Weather Details
+    </div>
+    <div class="card-body">
+        <app-data-displayer
+            [type]="TEMPERATURE"
+            [value]="generalReport?.averageTemp"
+            label="Temperature (avg)"
+        ></app-data-displayer>
+        <app-data-displayer
+            [type]="TEMPERATURE"
+            [value]="generalReport?.maxTemp"
+            label="Temperature (max)"
+        ></app-data-displayer>
+        <app-data-displayer
+            [type]="TEMPERATURE"
+            [value]="generalReport?.minimumTemp"
+            label="Temperature (min)"
+        ></app-data-displayer>
+        <app-data-displayer
+            [type]="PRECENTAGE"
+            [value]="generalReport?.humidity"
+            label="Humidity"
+        ></app-data-displayer>
+        <app-data-displayer
+            [type]="PREASSURE"
+            [value]="generalReport?.pressure"
+            label="Pressure"
+        ></app-data-displayer>
+        <app-data-displayer
+            [type]="IMAGE"
+            [value]="generalReport?.image?.icon"
+            size="2x"
+            label="Summary"
+            [description]="generalReport?.image?.description"
+        ></app-data-displayer>
+        <app-data-displayer
+            *ngIf="generalReport?.rain"
+            [type]="HEIGHT"
+            [value]="generalReport?.rain"
+            label="Rain"
+        ></app-data-displayer>
+        <app-data-displayer
+            *ngIf="generalReport?.snow"
+            [type]="HEIGHT"
+            [value]="generalReport?.snow"
+            label="Rain"
+        ></app-data-displayer>
+    </div>
+</div>

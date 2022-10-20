@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-7 col-md-12 col-lg-7 col-xl-7">
+            <div class="card">
+                <div class="card-header">
+                  Location Selector
+                </div>
+                <div class="card-body">
+                  <app-google-map (getLocation)="onLocationSelected($event)"></app-google-map>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-5 col-md-12 col-lg-5 col-xl-5">
+            <div class="card">
+                <div class="card-header">
+                  Weather Details
+                </div>
+                <div class="card-body weather-report">
+                  <app-location-details [locationReport]="locationReport"></app-location-details>
+                  <app-general-weather [generalReport]="generalWeatherReport"></app-general-weather>
+                  <app-sun-rise-set [sunRiseSetReport]="sunRiseSetReport"></app-sun-rise-set>
+                  <app-wind-details [windReport]="windReport"></app-wind-details>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
