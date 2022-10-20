@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="card-header">
+        Sun Rise & set
+    </div>
+    <div class="card-body">
+        <app-data-displayer
+            [type]="TIME"
+            [value]="sunRiseSetReport?.rise"
+            label="Sun Rise (Time)"
+        ></app-data-displayer>
+        <app-data-displayer
+            [type]="TIME"
+            [value]="sunRiseSetReport?.set"
+            label="Sun Set (Time)"
+        ></app-data-displayer>
+    </div>
+</div>

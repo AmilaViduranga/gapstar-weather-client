@@ -11,6 +11,8 @@ import { GoogleMapComponent } from './google-map/google-map.component';
 import { environment } from 'src/environments/environment';
 import { CurrentWeatherComponent } from './weather-portal/weather-portal.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { UtilsModule } from './utils/utils.module';
+import { ReportModule } from './report/report.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     BrowserAnimationsModule,
     HttpClientModule,
     MatToolbarModule,
+    UtilsModule,
+    ReportModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

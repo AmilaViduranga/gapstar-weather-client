@@ -1,6 +1,6 @@
 import { Component, ElementRef, EventEmitter, NgZone, OnInit, Output, ViewChild } from '@angular/core';
 import { MapsAPILoader } from '@agm/core';
-import type { LocationDetails } from '../DAO/location.dao';
+import type { LocationDetails } from '../dao/geo/location.dao';
 
 @Component({
   selector: 'app-google-map',
@@ -50,7 +50,7 @@ export class GoogleMapComponent implements OnInit {
     });
   }
 
-  private setCurrentLocation() {
+  private setCurrentLocation(): void {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.mapLocation.latitude = position.coords.latitude;

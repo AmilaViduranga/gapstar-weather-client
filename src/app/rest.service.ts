@@ -19,7 +19,7 @@ export class RestService {
   }
 
   generateImageBaseUrl(image: string, size: string): string {
-    return `${environment.openWeatherAPI.baseUrl}${environment.openWeatherAPI.image}/${image}@${size}.png`;
+    return `${environment.openWeatherAPI.resourceBaseUrl}${environment.openWeatherAPI.image}/${image}@${size}.png`;
   }
 
   generateBasicWeatherDetailUrl(): string {
