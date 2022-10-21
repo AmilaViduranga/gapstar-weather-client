@@ -21,5 +21,4 @@ export class GeneralWeatherComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

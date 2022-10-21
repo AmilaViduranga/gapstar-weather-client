@@ -1,9 +1,9 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { DataMeasurementsDegree, DataType } from 'src/app/dao/util/data-displayer.dao';
 import { RestService } from 'src/app/rest.service';
-import { DatePipe } from '../pipes/date.pipe';
-import { OpenWeatherImagePipe } from '../pipes/open-weather-image.pipe';
-import { TimePipe } from '../pipes/time.pipe';
+import { DatePipe } from '../pipes/date-pipe/date.pipe';
+import { OpenWeatherImagePipe } from '../pipes/open-weather-image-pipe/open-weather-image.pipe';
+import { TimePipe } from '../pipes/time-pipe/time.pipe';
 
 @Component({
   selector: 'app-data-displayer',
@@ -84,5 +84,4 @@ export class DataDisplayerComponent implements OnInit, OnChanges {
         break;
     }
   }
-
 }

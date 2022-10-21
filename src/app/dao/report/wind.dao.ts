@@ -1,3 +1,3 @@
 export interface WindReport {
-    speed: number;
+    speed: number,
 }

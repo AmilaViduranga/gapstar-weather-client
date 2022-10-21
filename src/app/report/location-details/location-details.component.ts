@@ -11,6 +11,7 @@ export class LocationDetailsComponent implements OnInit {
 
   TEXT = DataType.TEXT;
   TIME = DataType.TIME;
+  DATE = DataType.DATE;
   
   @Input() locationReport: LocationReport;
 
