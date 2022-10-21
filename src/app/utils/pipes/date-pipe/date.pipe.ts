@@ -8,9 +8,15 @@ export class DatePipe implements PipeTransform {
   transform(value: number): string {
     const givenDateInMiliseconds = value * 1000;
     const localDate = new Date(givenDateInMiliseconds);
-    const date = localDate.getDate();
-    const month = localDate.getMonth() + 1;
+    let date = localDate.getDate();
+    let month = localDate.getMonth() + 1;
     const year = localDate.getFullYear();
-    return `${year}/${month}/${date}`;
+    if (date < 10) {
+      date = `0${date}` as any;
+    }
+    if (month < 10) {
+      month = `0${month}` as any;
+    }
+    return `${year}-${month}-${date}`;
   }
 }

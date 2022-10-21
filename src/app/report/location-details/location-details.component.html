@@ -19,6 +19,11 @@
         label="Longitude"
       ></app-data-displayer>
       <app-data-displayer
+        [type]="DATE"
+        [value]="locationReport?.time"
+        label="Date"
+      ></app-data-displayer>
+      <app-data-displayer
         [type]="TIME"
         [value]="locationReport?.time"
         label="Time"
