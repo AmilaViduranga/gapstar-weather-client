@@ -42,15 +42,15 @@ export class DataDisplayerComponent implements OnInit, OnChanges {
     private restService: RestService,
   ) { }
 
+  ngOnInit(): void {
+      
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
     this.manipulateValueWithDegree();
   }
 
-  ngOnInit(): void {
-    this.manipulateValueWithDegree();
-  }
-
-  manipulateValueWithDegree(): void {
+  private manipulateValueWithDegree(): void {
     switch(this.type) {
       case this.TEMPERATURE:
         this.degree = this.TEMPERATURE_DEGREE;

@@ -8,6 +8,6 @@ export interface GeneralReport {
         icon: string,
         description: string,
     },
-    rain: number,
-    snow: number,
+    rain?: number,
+    snow?: number,
 }

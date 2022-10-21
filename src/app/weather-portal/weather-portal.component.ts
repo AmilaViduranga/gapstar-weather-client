@@ -16,10 +16,9 @@ import { HistoryComponent } from '../report/history/history.component';
   templateUrl: './weather-portal.component.html',
   styleUrls: ['./weather-portal.component.css']
 })
-export class CurrentWeatherComponent implements OnInit {
+export class WeatherPortalComponent implements OnInit {
 
   @ViewChild(HistoryComponent) historyComponent: HistoryComponent;
-
   locationDetails: LocationDetails;
 
   // reports

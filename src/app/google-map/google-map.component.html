@@ -1,7 +1,7 @@
 <div class="container">
   <!-- geo search bar --> 
     <div class="form-group geo-search">
-      <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
+      <input ngx-google-places-autocomplete  type="text" class="form-control" #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
     </div>
     
     <!-- google map -->

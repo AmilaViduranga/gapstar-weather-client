@@ -11,7 +11,7 @@ export enum DataType {
 }
 
 export enum DataMeasurementsDegree {
-    TEMPERATURE = "Celcius",
+    TEMPERATURE = "\xB0C",
     PERCENTAGE = "%",
     PREASSURE = "hPa",
     HEIGHT = "mm",

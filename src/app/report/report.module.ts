@@ -4,6 +4,7 @@ import { GeneralWeatherComponent } from './general-weather/general-weather.compo
 import { SunRiseSetComponent } from './sun-rise-set/sun-rise-set.component';
 import { LocationDetailsComponent } from './location-details/location-details.component';
 import { WindDetailsComponent } from './wind-details/wind-details.component';
+import { HistoryComponent } from './history/history.component';
 import { UtilsModule } from '../utils/utils.module';
 
 @NgModule({
@@ -11,7 +12,8 @@ import { UtilsModule } from '../utils/utils.module';
     GeneralWeatherComponent,
     SunRiseSetComponent,
     LocationDetailsComponent,
-    WindDetailsComponent
+    WindDetailsComponent,
+    HistoryComponent,
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { UtilsModule } from '../utils/utils.module';
     GeneralWeatherComponent,
     SunRiseSetComponent,
     LocationDetailsComponent,
-    WindDetailsComponent
+    WindDetailsComponent,
+    HistoryComponent,
   ]
 })
 export class ReportModule { }
