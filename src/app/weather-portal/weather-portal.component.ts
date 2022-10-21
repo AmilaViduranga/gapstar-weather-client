@@ -1,4 +1,4 @@
-import { Component, NgZone, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AlertService } from 'ngx-alerts';
 import { environment } from 'src/environments/environment';
@@ -9,6 +9,7 @@ import type { SunRiseSetReport } from '../dao/report/sun-rise-set.dao';
 import type { WindReport } from '../dao/report/wind.dao';
 import type { WeatherReport } from '../dao/responses/weather-basic.dao';
 import { RestService } from '../rest.service';
+import { HistoryComponent } from '../report/history/history.component';
 
 @Component({
   selector: 'app-weather-portal',
@@ -16,6 +17,8 @@ import { RestService } from '../rest.service';
   styleUrls: ['./weather-portal.component.css']
 })
 export class CurrentWeatherComponent implements OnInit {
+
+  @ViewChild(HistoryComponent) historyComponent: HistoryComponent;
 
   locationDetails: LocationDetails;
 
@@ -31,7 +34,7 @@ export class CurrentWeatherComponent implements OnInit {
     this.getWetherDetails();
   }
 
-  getWetherDetails(): void {
+  private getWetherDetails(): void {
     if (this.locationDetails?.latitude && this.locationDetails?.logitude) {
       this.spiner.show();
       this.httpService.get(`${this.httpService.generateBasicWeatherDetailUrl()}?lat=${this.locationDetails.latitude}&lon=${this.locationDetails.logitude}&appid=${environment.openWeatherApiKey}&units=metric`, false).subscribe(
@@ -45,6 +48,7 @@ export class CurrentWeatherComponent implements OnInit {
                 weatherReport.snow.oneHour = weatherReport.snow["1h"];
               }
     
+              // location report
               this.locationReport = {
                 cityName: weatherReport.name,
                 latitude: weatherReport.coord.lat,
@@ -52,6 +56,7 @@ export class CurrentWeatherComponent implements OnInit {
                 time: weatherReport.dt,
               }
     
+              // general weather report
               this.generalWeatherReport = {
                 averageTemp: weatherReport.main.temp,
                 maxTemp: weatherReport.main.temp_max,
@@ -66,13 +71,19 @@ export class CurrentWeatherComponent implements OnInit {
                 snow: weatherReport.snow?.oneHour,
               }
     
+              // sun rise report
               this.sunRiseSetReport = {
                 rise: weatherReport?.sys?.sunrise,
                 set: weatherReport?.sys?.sunset,
               }
     
+              // wind report
               this.windReport = {
                 speed: weatherReport?.wind?.speed,
+              }
+
+              if (this.historyComponent) {
+                this.historyComponent.loadDetailReport();
               }
             });
         },
