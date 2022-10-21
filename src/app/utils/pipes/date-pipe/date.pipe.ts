@@ -13,5 +13,4 @@ export class DatePipe implements PipeTransform {
     const year = localDate.getFullYear();
     return `${year}/${month}/${date}`;
   }
-
 }

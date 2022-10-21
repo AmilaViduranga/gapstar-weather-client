@@ -5,14 +5,17 @@ import { AgmCoreModule } from '@agm/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { UtilsModule } from './utils/utils.module';
+import { ReportModule } from './report/report.module';
+import { AlertModule } from 'ngx-alerts';
+
 
 import { AppComponent } from './app.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
 import { environment } from 'src/environments/environment';
 import { CurrentWeatherComponent } from './weather-portal/weather-portal.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { UtilsModule } from './utils/utils.module';
-import { ReportModule } from './report/report.module';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,8 @@ import { ReportModule } from './report/report.module';
     MatToolbarModule,
     UtilsModule,
     ReportModule,
+    NgxSpinnerModule,
+    AlertModule.forRoot({maxMessages: 5, timeout: 5000}),
   ],
   providers: [],
   bootstrap: [AppComponent]

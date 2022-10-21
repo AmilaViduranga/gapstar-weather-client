@@ -12,5 +12,4 @@ export class TimePipe implements PipeTransform {
     const minites = localDate.getMinutes();
     return `${hours}:${minites}`;
   }
-
 }

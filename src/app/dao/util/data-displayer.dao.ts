@@ -15,5 +15,5 @@ export enum DataMeasurementsDegree {
     PERCENTAGE = "%",
     PREASSURE = "hPa",
     HEIGHT = "mm",
-    SPEED = "m/s"
+    SPEED = "m/s",
 }
