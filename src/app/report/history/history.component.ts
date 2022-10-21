@@ -32,7 +32,6 @@ export class HistoryComponent  {
             };
             this.historyDetails.push(report);
           });
-          console.log(this.historyDetails);
         }
       });
     });

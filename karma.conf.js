@@ -6,7 +6,6 @@ module.exports = function (config) {
     basePath: '',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     files:[
-      'src/app/dao/mocks/google-places.js',
       'src/app/dao/mocks/google-api.js',
     ],
     plugins: [

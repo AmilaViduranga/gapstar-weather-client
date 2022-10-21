@@ -1,7 +1,8 @@
-import { Component, ElementRef, EventEmitter, NgZone, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { MapsAPILoader } from '@agm/core';
-import { google } from "google-maps";
 import type { LocationDetails } from '../dao/geo/location.dao';
+import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
+import { Address } from 'ngx-google-places-autocomplete/objects/address';
 
 @Component({
   selector: 'app-google-map',
@@ -15,36 +16,16 @@ export class GoogleMapComponent implements OnInit {
     logitude: 0.0
   };
   zoom?: number;
-  geoCoder: google.maps.Geocoder;
-  autocomplete: google.maps.places.Autocomplete;
   @Output() getLocation: EventEmitter<LocationDetails> = new EventEmitter<LocationDetails>();
-
-  @ViewChild('search')
-  searchElementRef?: ElementRef;
+  @ViewChild("placesRef") placesRef : GooglePlaceDirective;
 
   constructor(
     private mapsAPILoader: MapsAPILoader,
   ) { }
   
   ngOnInit() {
-    this.loadGoogleMapAndGEOSearch();
-  }
-
-  private loadGoogleMapAndGEOSearch(): void {
     this.mapsAPILoader.load().then(() => {
       this.setCurrentLocation();
-      this.geoCoder = new google.maps.Geocoder;
-      this.autocomplete = new google.maps.places.Autocomplete(this.searchElementRef?.nativeElement);
-      this.autocomplete.addListener("place_changed", () => {
-        let place: google.maps.places.PlaceResult = this.autocomplete.getPlace();
-        if (place.geometry === undefined || place.geometry === null) {
-          return;
-        }
-        this.mapLocation.latitude = place.geometry.location.lat();
-        this.mapLocation.logitude = place.geometry.location.lng();
-        this.zoom = 12;
-        this.getLocation.emit(this.mapLocation);
-      });
     });
   }
 
@@ -57,5 +38,12 @@ export class GoogleMapComponent implements OnInit {
         this.getLocation.emit(this.mapLocation);
       });
     }
+  }
+
+  handleAddressChange(address: Address): void {
+    this.mapLocation.latitude = address.geometry.location.lat();
+    this.mapLocation.logitude = address.geometry.location.lng();
+    this.zoom = 12;
+    this.getLocation.emit(this.mapLocation);
   }
 }

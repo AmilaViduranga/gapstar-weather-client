@@ -9,7 +9,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { UtilsModule } from './utils/utils.module';
 import { ReportModule } from './report/report.module';
 import { AlertModule } from 'ngx-alerts';
-
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 
 import { AppComponent } from './app.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
@@ -37,6 +37,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     UtilsModule,
     ReportModule,
     NgxSpinnerModule,
+    GooglePlaceModule,
     AlertModule.forRoot({maxMessages: 5, timeout: 5000}),
   ],
   providers: [],
