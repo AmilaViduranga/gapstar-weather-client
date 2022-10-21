@@ -14,14 +14,14 @@ import { AlertModule } from 'ngx-alerts';
 import { AppComponent } from './app.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
 import { environment } from 'src/environments/environment';
-import { CurrentWeatherComponent } from './weather-portal/weather-portal.component';
+import { WeatherPortalComponent } from './weather-portal/weather-portal.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GoogleMapComponent,
-    CurrentWeatherComponent,
+    WeatherPortalComponent,
     NavBarComponent,
   ],
   imports: [

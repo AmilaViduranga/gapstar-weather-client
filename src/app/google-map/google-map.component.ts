@@ -1,5 +1,6 @@
 import { Component, ElementRef, EventEmitter, NgZone, OnInit, Output, ViewChild } from '@angular/core';
 import { MapsAPILoader } from '@agm/core';
+import { google } from "google-maps";
 import type { LocationDetails } from '../dao/geo/location.dao';
 
 @Component({
@@ -23,7 +24,6 @@ export class GoogleMapComponent implements OnInit {
 
   constructor(
     private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone
   ) { }
   
   ngOnInit() {
@@ -36,16 +36,14 @@ export class GoogleMapComponent implements OnInit {
       this.geoCoder = new google.maps.Geocoder;
       this.autocomplete = new google.maps.places.Autocomplete(this.searchElementRef?.nativeElement);
       this.autocomplete.addListener("place_changed", () => {
-        this.ngZone.run(() => {
-          let place: google.maps.places.PlaceResult = this.autocomplete.getPlace();
-          if (place.geometry === undefined || place.geometry === null) {
-            return;
-          }
-          this.mapLocation.latitude = place.geometry.location.lat();
-          this.mapLocation.logitude = place.geometry.location.lng();
-          this.zoom = 12;
-          this.getLocation.emit(this.mapLocation);
-        });
+        let place: google.maps.places.PlaceResult = this.autocomplete.getPlace();
+        if (place.geometry === undefined || place.geometry === null) {
+          return;
+        }
+        this.mapLocation.latitude = place.geometry.location.lat();
+        this.mapLocation.logitude = place.geometry.location.lng();
+        this.zoom = 12;
+        this.getLocation.emit(this.mapLocation);
       });
     });
   }

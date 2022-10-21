@@ -19,7 +19,10 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
   ],
   exports: [
-    DataDisplayerComponent
+    DataDisplayerComponent,
+    DatePipe,
+    OpenWeatherImagePipe,
+    TimePipe,
   ]
 })
 export class UtilsModule { }

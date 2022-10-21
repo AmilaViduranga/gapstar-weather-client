@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CurrentWeatherComponent } from './weather-portal/weather-portal.component';
+import { WeatherPortalComponent } from './weather-portal/weather-portal.component';
 
 const routes: Routes = [
   {
-    path: 'current-weather', component: CurrentWeatherComponent
+    path: 'current-weather', component: WeatherPortalComponent
   },
   { 
     path: '', redirectTo: '/current-weather', pathMatch: 'full' 
