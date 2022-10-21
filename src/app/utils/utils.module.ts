@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DataDisplayerComponent } from './data-displayer/data-displayer.component';
 
-import { DatePipe } from './pipes/date.pipe';
-import { OpenWeatherImagePipe } from './pipes/open-weather-image.pipe';
-import { TimePipe } from './pipes/time.pipe';
+import { DatePipe } from './pipes/date-pipe/date.pipe';
+import { OpenWeatherImagePipe } from './pipes/open-weather-image-pipe/open-weather-image.pipe';
+import { TimePipe } from './pipes/time-pipe/time.pipe';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
