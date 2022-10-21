@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-sm-7 col-md-12 col-lg-7 col-xl-7">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7">
             <div class="card">
                 <div class="card-header">
                   Location Selector
@@ -10,7 +10,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-5 col-md-12 col-lg-5 col-xl-5">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5">
             <div class="card">
                 <div class="card-header">
                   Weather Details
@@ -20,6 +20,7 @@
                   <app-location-details [locationReport]="locationReport"></app-location-details>
                   <app-sun-rise-set [sunRiseSetReport]="sunRiseSetReport"></app-sun-rise-set>
                   <app-wind-details [windReport]="windReport"></app-wind-details>
+                  <app-history [locationDetails]="locationDetails" #history></app-history>
                 </div>
             </div>
         </div>
