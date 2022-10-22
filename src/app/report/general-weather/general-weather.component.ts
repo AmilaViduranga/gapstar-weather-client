@@ -1,3 +1,6 @@
+/**
+ * Used to display wether details like max temp, avg temp, min temp humidity etc
+ */
 import { Component, Input, OnInit } from '@angular/core';
 import { GeneralReport } from 'src/app/dao/report/general.dao';
 import { DataType } from 'src/app/dao/util/data-displayer.dao';

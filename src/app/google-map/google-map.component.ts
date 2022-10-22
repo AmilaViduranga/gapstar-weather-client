@@ -1,3 +1,7 @@
+/**
+ * Used to search location and mark searched location in geo map
+ */
+
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { MapsAPILoader } from '@agm/core';
 import type { LocationDetails } from '../dao/geo/location.dao';
@@ -19,16 +23,26 @@ export class GoogleMapComponent implements OnInit {
   @Output() getLocation: EventEmitter<LocationDetails> = new EventEmitter<LocationDetails>();
   @ViewChild("placesRef") placesRef : GooglePlaceDirective;
 
+  /**
+   * constructor
+   * @param mapsAPILoader MapsAPILoader class injection
+   */
   constructor(
     private mapsAPILoader: MapsAPILoader,
   ) { }
   
+  /**
+   * ngOnInit method. Angualar life cycle method
+   */
   ngOnInit() {
     this.mapsAPILoader.load().then(() => {
       this.setCurrentLocation();
     });
   }
 
+  /**
+   * set the current location of the user
+   */
   private setCurrentLocation(): void {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -40,6 +54,10 @@ export class GoogleMapComponent implements OnInit {
     }
   }
 
+  /**
+   * mark lat and lon values of searched location
+   * @param address Addresstype instance that keep lat and lon
+   */
   handleAddressChange(address: Address): void {
     this.mapLocation.latitude = address.geometry.location.lat();
     this.mapLocation.logitude = address.geometry.location.lng();

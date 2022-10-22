@@ -1,3 +1,6 @@
+/**
+ * Used to display weather details. It is the single component that used to display single data
+ */
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { DataMeasurementsDegree, DataType } from 'src/app/dao/util/data-displayer.dao';
 import { RestService } from 'src/app/rest.service';
@@ -38,18 +41,33 @@ export class DataDisplayerComponent implements OnInit, OnChanges {
   HEIGHT_DEGREE = DataMeasurementsDegree.HEIGHT;
   SPEED_DEGREE = DataMeasurementsDegree.SPEED;
 
+  /**
+   * constructor
+   * @param restService  RestService that used for http comunications
+   */
   constructor(
     private restService: RestService,
   ) { }
 
+  /**
+   * ngOnInit method. Angular life cycle method
+   */
   ngOnInit(): void {
       
   }
 
+  /**
+   * Trigger when any change happen to the inputs
+   * @param changes changed values
+   */
   ngOnChanges(changes: SimpleChanges): void {
     this.manipulateValueWithDegree();
   }
 
+  /**
+   * Set the degree and manipulate that value.As an example if the value type is Preasure and value
+   * is 34. Then it changed the value to 34 hPa and render it.
+   */
   private manipulateValueWithDegree(): void {
     switch(this.type) {
       case this.TEMPERATURE:

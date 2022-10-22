@@ -1,3 +1,6 @@
+/**
+ * Display wether details like weather speed
+ */
 import { Component, Input, OnInit } from '@angular/core';
 import type { WindReport } from 'src/app/dao/report/wind.dao';
 import { DataType } from 'src/app/dao/util/data-displayer.dao';

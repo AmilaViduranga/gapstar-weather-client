@@ -1,3 +1,7 @@
+/**
+ * Used to display location details like latitude, logitude, location name
+ */
+
 import { Component, Input, OnInit } from '@angular/core';
 import type { LocationReport } from 'src/app/dao/report/location.dao';
 import { DataType } from 'src/app/dao/util/data-displayer.dao';

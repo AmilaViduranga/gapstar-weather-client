@@ -1,3 +1,7 @@
+/**
+ * Module that handle all wether details in seperately
+ */
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GeneralWeatherComponent } from './general-weather/general-weather.component';

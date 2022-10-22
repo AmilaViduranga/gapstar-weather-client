@@ -1,3 +1,7 @@
+/**
+ * Used to display weather details in next eight days 
+ */
+
 import { Component, Input, NgZone, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import type { History } from 'src/app/dao/report/history.dao';
 import { DatePipe } from 'src/app/utils/pipes/date-pipe/date.pipe';
@@ -16,8 +20,16 @@ export class HistoryComponent  {
   @Input() locationDetails: LocationDetails;
   historyDetails: History[] = [];;
 
+  /**
+   * constructor
+   * @param restService RestService injectable instance
+   * @param ngZone ngZone instance that used to run zone.
+   */
   constructor(private restService: RestService, private ngZone: NgZone) { }
 
+  /**
+   * load the future weather details by hit the in detail endpoint (version 3.0)
+   */
   loadDetailReport(): void {
     this.ngZone.run(() => {
       this.restService.get(`${this.restService.generateInDetailWeatherDetailUrl()}?lat=${this.locationDetails.latitude}&lon=${this.locationDetails.logitude}&appid=${environment.openWeatherApiKey}&units=metric`, false).subscribe({

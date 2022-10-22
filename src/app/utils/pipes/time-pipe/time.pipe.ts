@@ -1,3 +1,6 @@
+/**
+ * Used to generate seconds to user readable time
+ */
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
@@ -5,6 +8,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class TimePipe implements PipeTransform {
 
+  /**
+   * Transform method that used inside pipe
+   * @param value date valuse in seconds
+   * @returns user readable time in hh:mm
+   */
   transform(value: number): string {
     const givenDateInMiliseconds = value * 1000;
     const localDate = new Date(givenDateInMiliseconds);
