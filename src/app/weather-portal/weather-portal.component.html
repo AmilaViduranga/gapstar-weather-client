@@ -17,10 +17,10 @@
                 </div>
                 <div class="card-body weather-report">
                   <app-general-weather [generalReport]="generalWeatherReport"></app-general-weather>
+                  <app-history [locationDetails]="locationDetails" #history></app-history>
                   <app-location-details [locationReport]="locationReport"></app-location-details>
                   <app-sun-rise-set [sunRiseSetReport]="sunRiseSetReport"></app-sun-rise-set>
                   <app-wind-details [windReport]="windReport"></app-wind-details>
-                  <app-history [locationDetails]="locationDetails" #history></app-history>
                 </div>
             </div>
         </div>
