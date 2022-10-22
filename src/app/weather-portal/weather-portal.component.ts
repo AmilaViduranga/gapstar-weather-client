@@ -1,3 +1,6 @@
+/**
+ * Component that used to display weather details to the user. It has geo map and weather details
+ */
 import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AlertService } from 'ngx-alerts';
@@ -27,12 +30,25 @@ export class WeatherPortalComponent implements OnInit {
   sunRiseSetReport: SunRiseSetReport;
   windReport: WindReport;
 
+  /**
+   * constructor
+   * @param httpService RestService injected 
+   * @param zone ngZone to run zone. It will increase the perfirmance by running the statement in another thread
+   * @param spiner the preloader injected instance
+   * @param alertService the alert service injected instance
+   */
   constructor(private httpService: RestService, private zone: NgZone, private spiner: NgxSpinnerService, private alertService: AlertService) { }
 
+  /**
+   * ngOnInit angular life cycle method
+   */
   ngOnInit(): void {
     this.getWetherDetails();
   }
 
+  /**
+   * Used to generate weather details by fetching details from openWeatherAPI
+   */
   private getWetherDetails(): void {
     if (this.locationDetails?.latitude && this.locationDetails?.logitude) {
       this.spiner.show();
@@ -95,6 +111,10 @@ export class WeatherPortalComponent implements OnInit {
     }
   }
 
+  /**
+   * Emit method once user select a location
+   * @param locationDetails Latitude and longitude of selected location
+   */
   onLocationSelected(locationDetails: LocationDetails): void {
     this.locationDetails = locationDetails;
     this.getWetherDetails();

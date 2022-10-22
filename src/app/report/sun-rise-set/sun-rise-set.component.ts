@@ -1,3 +1,6 @@
+/**
+ * used to display sun raise and sun set valued
+ */
 import { Component, Input, OnInit } from '@angular/core';
 import type { SunRiseSetReport } from 'src/app/dao/report/sun-rise-set.dao';
 import { DataType } from 'src/app/dao/util/data-displayer.dao';

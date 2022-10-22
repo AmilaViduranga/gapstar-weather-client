@@ -1,3 +1,6 @@
+/**
+ * Used to keep reusable fundamental components like text, label, image.
+ */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DataDisplayerComponent } from './data-displayer/data-displayer.component';

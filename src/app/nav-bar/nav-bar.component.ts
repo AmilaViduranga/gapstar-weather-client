@@ -1,3 +1,7 @@
+/**
+ * navigation bar at the top of the page 
+ */
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
